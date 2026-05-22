@@ -10,23 +10,32 @@ class InstagramScraper:
         self.session_file = session_file
         self.is_logged_in = False
 
-    def login(self, username, password):
+    def login(self, username, password, verification_code=None):
         try:
-            if os.path.exists(self.session_file):
+            if os.path.exists(self.session_file) and not verification_code:
                 self.cl.load_settings(self.session_file)
                 try:
                     self.cl.login(username, password)
-                    # Check if session is still valid
                     self.cl.get_timeline_feed()
+                    self.is_logged_in = True
+                    return True, "Login realizado com sucesso."
                 except LoginRequired:
-                    self.cl.login(username, password)
+                    pass # Continue to normal login
+
+            if verification_code:
+                # Use the code provided by the user
+                self.cl.login(username, password, verification_code=verification_code)
             else:
+                # Attempt login normally
                 self.cl.login(username, password)
 
             self.cl.dump_settings(self.session_file)
             self.is_logged_in = True
             return True, "Login realizado com sucesso."
         except Exception as e:
+            err_msg = str(e).lower()
+            if "two-factor" in err_msg or "verification_code" in err_msg:
+                return "2FA", "Autenticação de dois fatores necessária."
             return False, str(e)
 
     def get_user_details(self, user_id):

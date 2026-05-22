@@ -31,9 +31,14 @@ def login():
     data = request.json
     username = data.get('username')
     password = data.get('password')
+    code = data.get('code') # 2FA code
 
-    success, message = scraper.login(username, password)
-    return jsonify({"success": success, "message": message})
+    result, message = scraper.login(username, password, verification_code=code)
+
+    if result == "2FA":
+        return jsonify({"success": False, "message": message, "needs_2fa": True})
+
+    return jsonify({"success": result, "message": message})
 
 @app.route('/start_scrape', methods=['POST'])
 def start_scrape():
