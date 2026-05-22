@@ -58,16 +58,18 @@ O programa precisa do Python para rodar. Escolha o seu sistema:
 Agora, com a janela preta (terminal) aberta na pasta correta, digite estes comandos um por um:
 
 **Passo A: Instalar os complementos**
+Digite este comando e aperte Enter:
 ```bash
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
-*(No Mac/Linux, se o comando acima falhar, tente: `pip3 install -r requirements.txt`)*
+*(Se der erro "command not found: python3", tente apenas `pip install -r requirements.txt` ou `python -m pip install -r requirements.txt`)*
 
 **Passo B: Ligar o programa**
+Digite este comando e aperte Enter:
 ```bash
-python app.py
+python3 app.py
 ```
-*(No Mac/Linux, se falhar, tente: `python3 app.py`)*
+*(Se der erro, tente apenas: `python app.py`)*
 
 ---
 
