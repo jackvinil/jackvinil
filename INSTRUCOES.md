@@ -1,77 +1,93 @@
-# Guia Passo a Passo: Como usar o Extrator de Seguidores
+# Guia Passo a Passo: Extrator de Seguidores do Instagram
 
-Este guia foi feito para quem nunca usou um terminal ou programação. Siga cada passo com calma.
-
----
-
-### Passo 1: Instalar o "Motor" (Python)
-Para o programa funcionar, seu computador precisa do **Python**.
-
-1. Acesse: [python.org](https://www.python.org/downloads/)
-2. Clique no botão amarelo **Download Python**.
-3. Ao abrir o instalador, **MUITO IMPORTANTE:** Marque a caixinha que diz **"Add Python to PATH"** (Adicionar Python ao PATH) antes de clicar em "Install Now".
-4. Siga a instalação até o fim.
+Este guia foi criado para quem nunca usou um terminal ou programação. Siga as instruções específicas para o seu sistema operacional.
 
 ---
 
-### Passo 2: Preparar os arquivos
-1. Baixe os arquivos deste projeto (se você recebeu um arquivo .zip, extraia-o em uma pasta, por exemplo, na sua "Área de Trabalho").
-2. Abra a pasta onde os arquivos estão (você verá arquivos como `app.py`, `scraper.py`, etc.).
+## 💻 1. Instalação do Python (O "Motor")
+
+O programa precisa do Python para rodar. Escolha o seu sistema:
+
+### **Windows**
+1. Acesse: [python.org/downloads](https://www.python.org/downloads/)
+2. Clique no botão **Download Python**.
+3. Abra o arquivo baixado.
+4. **MUITO IMPORTANTE:** Marque a caixa **"Add Python to PATH"** antes de clicar em "Install Now".
+5. Siga até o final.
+
+### **Mac (macOS)**
+1. Acesse: [python.org/downloads](https://www.python.org/downloads/)
+2. Clique no botão **Download Python**.
+3. Abra o arquivo `.pkg` e instale normalmente.
+4. Após instalar, abra o buscador (Spotlight) e digite "Certificates". Clique em **"Install Certificates.command"** que está na pasta do Python (isso evita erros de conexão).
+
+### **Linux (Ubuntu/Debian)**
+1. Abra o seu terminal.
+2. Digite: `sudo apt update && sudo apt install python3 python3-pip`
 
 ---
 
-### Passo 3: Abrir o "Terminal" na pasta certa
-O terminal é aquela janelinha preta onde digitamos comandos.
+## 📂 2. Preparando os Arquivos
 
-**No Windows:**
+1. Baixe o projeto e extraia-o em uma pasta fácil de achar (ex: na sua Área de Trabalho).
+2. O nome da pasta deve ser algo como `instagram-scraper`.
+
+---
+
+## ⌨️ 3. Abrindo o Terminal na Pasta do Projeto
+
+### **Windows**
 1. Abra a pasta do projeto no Explorador de Arquivos.
-2. Clique na barra de endereço lá no topo (onde aparece o caminho da pasta).
-3. Apague tudo o que estiver escrito, digite `cmd` e aperte **Enter**.
-4. Uma janela preta vai abrir exatamente na pasta do projeto.
+2. Clique na barra de endereço (onde fica o caminho da pasta) no topo da janela.
+3. Apague tudo, digite `cmd` e aperte **Enter**.
+
+### **Mac (macOS)**
+1. Abra a pasta do projeto no Finder.
+2. Clique com o botão direito na pasta (ou dentro dela).
+3. Selecione **"Novo Terminal na Pasta"** (New Terminal at Folder).
+   *Dica: Se não aparecer, vá em Ajustes do Sistema > Teclado > Atalhos > Serviços > Habilite "Novo Terminal na Pasta".*
+
+### **Linux**
+1. Abra a pasta do projeto.
+2. Clique com o botão direito em um espaço vazio e selecione **"Abrir no Terminal"**.
 
 ---
 
-### Passo 4: Instalar os complementos
-Agora, vamos dizer ao Python tudo o que ele precisa baixar para rodar o programa.
-Na janela preta, digite o seguinte comando e aperte **Enter**:
+## 🚀 4. Instalando e Rodando
 
+Agora, com a janela preta (terminal) aberta na pasta correta, digite estes comandos um por um:
+
+**Passo A: Instalar os complementos**
 ```bash
 pip install -r requirements.txt
 ```
+*(No Mac/Linux, se o comando acima falhar, tente: `pip3 install -r requirements.txt`)*
 
-*Aguarde alguns minutos. Muitas letras vão aparecer, isso é normal. Quando parar de aparecer coisas e a linha de comando voltar, está pronto.*
-
----
-
-### Passo 5: Iniciar o Programa
-Ainda na janela preta, digite:
-
+**Passo B: Ligar o programa**
 ```bash
 python app.py
 ```
-
-*Se aparecer uma mensagem dizendo que o servidor está rodando em `http://127.0.0.1:5000`, parabéns! O programa está funcionando.*
-
----
-
-### Passo 6: Usar a ferramenta no seu Navegador
-1. Não feche a janela preta! Deixe ela aberta.
-2. Abra o seu navegador (Chrome, Edge, etc.).
-3. Na barra de endereços, digite: `http://localhost:5000` e aperte **Enter**.
-4. Você verá a tela do programa.
+*(No Mac/Linux, se falhar, tente: `python3 app.py`)*
 
 ---
 
-### Dicas de Uso Importantes:
+## 🌐 5. Usando a Ferramenta
 
-1. **Login:** Use o seu usuário e senha do Instagram. O programa salva uma "sessão", então ele não vai pedir login toda hora (isso protege sua conta).
-2. **O Código de Verificação:** Se o seu Instagram tiver autenticação em dois fatores, pode aparecer um aviso na janela preta pedindo o código. Fique de olho nela na primeira vez que entrar.
-3. **Paciência é Segurança:** O programa processa cada usuário devagar (cerca de 2 usuários por minuto). Isso é proposital para o Instagram não perceber que é um robô e não bloquear sua conta.
-4. **Pausar e Continuar:** Se precisar desligar o computador, clique em **Pausar** e depois em **Parar e Salvar**. Quando você abrir o programa de novo para o mesmo perfil, ele vai saber de onde parou.
-5. **Onde fica o arquivo final?** Assim que terminar, clique em **Baixar CSV**. O arquivo será aberto no Excel com todas as informações.
+1. **NÃO FECHE** a janela do terminal enquanto estiver usando.
+2. Abra o seu navegador (Chrome, Safari, etc.).
+3. Digite este endereço: `http://localhost:5000`
+4. Você verá a interface do programa.
+
+### **Como Extrair:**
+1. **Login:** Entre com seu usuário e senha do Instagram.
+2. **Perfil Alvo:** Digite o @ do perfil que você segue e quer baixar os seguidores.
+3. **Paciência:** O programa é lento de propósito (15-30 segundos por pessoa) para o Instagram não bloquear sua conta. Deixe rodando ao fundo.
+4. **Download:** Quando terminar (ou se você clicar em "Parar e Salvar"), clique no botão **Baixar CSV** para abrir os dados no Excel.
 
 ---
 
-### Problemas Comuns:
-- **"Comando python não encontrado":** Você provavelmente esqueceu de marcar a caixa "Add Python to PATH" no Passo 1. Desinstale o Python e instale novamente com a caixa marcada.
-- **Janela fechou sozinha:** Se a janela preta fechar, o programa para. Você precisa repetir o **Passo 5** para ligar ele de novo.
+## ⚠️ Dicas de Segurança e Erros
+
+- **2FA (Autenticação):** Se sua conta pede código por SMS/App, fique de olho na janela do terminal na primeira vez. Ele pode pedir para você digitar o código lá.
+- **Sessão:** O programa salva um arquivo chamado `session.json`. Não delete ele, pois ele evita que você precise logar de novo, o que é mais seguro.
+- **Erro de Conexão (Mac):** Se der erro de SSL, certifique-se de que executou o arquivo "Install Certificates.command" mencionado no Passo 1.
