@@ -103,4 +103,11 @@ class InstagramScraper:
             "ID da pagina pra Nova": data.get("page_id_for_new_persona"),
             "Nome da Pagina": data.get("page_name"),
         }
+
+        # Critical Fix: Convert Pydantic objects (like HttpUrl) to strings
+        # and lists/dicts to strings to avoid JSON serialization errors
+        for key, value in mapped.items():
+            if value is not None and not isinstance(value, (str, int, float, bool)):
+                mapped[key] = str(value)
+
         return mapped

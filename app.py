@@ -98,11 +98,16 @@ def run_scrape_thread(target):
                     break
 
             follower_id = follower_ids[i]
-            details = scraper.get_user_details(follower_id)
 
-            if details:
-                mapped_data = scraper.map_user_data(details)
-                scrape_status["data"].append(mapped_data)
+            try:
+                details = scraper.get_user_details(follower_id)
+                if details:
+                    mapped_data = scraper.map_user_data(details)
+                    scrape_status["data"].append(mapped_data)
+            except Exception as e:
+                print(f"Erro ao processar seguidor {follower_id}: {e}")
+                # Skip to next instead of crashing
+                time.sleep(60) # Wait a bit longer if error occurs
 
             scrape_status["progress"] = i + 1
 
