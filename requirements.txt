@@ -1,0 +1,4 @@
+flask
+instagrapi
+pandas
+python-dotenv
