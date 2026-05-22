@@ -12,18 +12,12 @@ Este projeto é uma ferramenta web para extrair informações detalhadas de segu
 
 ## Como usar
 
-1. **Instale as dependências:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+Se você não tem experiência com programação, por favor leia o nosso **[Guia para Iniciantes (INSTRUCOES.md)](INSTRUCOES.md)**.
 
-2. **Inicie o programa:**
-   ```bash
-   python app.py
-   ```
-
-3. **Acesse a interface:**
-   Abra o seu navegador em `http://localhost:5000`
+Para usuários avançados:
+1. **Instale as dependências:** `pip install -r requirements.txt`
+2. **Inicie o programa:** `python app.py`
+3. **Acesse a interface:** `http://localhost:5000`
 
 ## Notas de Segurança
 - O script utiliza pausas de 15 a 30 segundos por usuário para imitar o comportamento humano.

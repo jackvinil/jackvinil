@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+session.json
+resume_*.json
+followers_*.csv
+flask.log
+.env
